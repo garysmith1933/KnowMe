@@ -15,6 +15,5 @@ def serve(path):
 def get_data():
   return db.get_questions()
 
-
 if __name__ == "__main__":
   app.run(debug=True, port=8080)
