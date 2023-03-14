@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  height: 75px;
+  border: 3px solid #2b2d42;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+#next {
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  background-color: white;
+}
+
+#next:hover, .options:hover {
+  border-color: #61dafb;
+  cursor: pointer;
+}
+
+#question-container {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  border: 5px solid #61dafb
+}
+
+body {
+  background-color: #2b2d42;
+}
+
+.header {
+  margin-bottom: 0;
+}
+
+span {
+  color:#61dafb
+}

@@ -1,0 +1,36 @@
+.questions {
+    padding: 1rem;
+    margin: 10px auto;
+    width:400px;
+    height:25vh;
+    display:grid;
+    grid-template-columns: 200px 200px;
+    grid-row: auto auto;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  .title {
+    margin-top: 1rem;
+    margin-bottom: 0
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .correct, .correct:hover {
+    background-color: green;
+    color: white
+  }
+  
+  .incorrect, .incorrect:hover {
+    background-color: red
+  }
+
