@@ -2,6 +2,7 @@ from flask import Flask, send_from_directory
 from flask_cors import CORS, cross_origin
 import db
 
+
 app = Flask(__name__, static_folder='client/build')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
