@@ -1,5 +1,10 @@
 import psycopg2
-conn = psycopg2.connect(dbname='trivia', password='root', user='postgres')
+import bitdotio
+import os
+
+b = bitdotio.bitdotio(os.environ.get("API_KEY"))
+conn = b.get_connection("garysmith1933/KnowMe")
+
 
 def seed():
   with conn: # commits automatically when completed
