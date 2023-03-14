@@ -13,7 +13,7 @@ def serve(path):
 @app.route("/data")
 # @cross_origin()
 def get_data():
-  return db.get_questions()
+  return db.get_questions() 
 
 if __name__ == "__main__":
   app.run(debug=True, port=8080)
