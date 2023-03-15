@@ -1,13 +1,11 @@
-import bitdotio
+import psycopg2
+from bitdotio import bitdotio
 import os
 
-b = bitdotio.bitdotio(os.environ.get("API_KEY"))
-conn = b.get_connection("garysmith1933/KnowMe")
-
+b = bitdotio(os.environ.get("API_KEY"))
 
 def seed():
-  with conn: # commits automatically when completed
-    with conn.cursor() as cur: # closes cursor when completed
+    with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
       cur.execute("DROP TABLE IF EXISTS question")
       cur.execute("CREATE TABLE question (id SERIAL PRIMARY KEY, title VARCHAR, option1 VARCHAR, option2 VARCHAR, option3 VARCHAR, answer VARCHAR);")
 
@@ -24,7 +22,7 @@ def seed():
         cur.execute("INSERT INTO question (title, option1, option2, option3, answer) VALUES(%s,%s,%s,%s,%s)", values)
 
 def get_questions():
-  with conn.cursor() as cur: # closes cursor when completed
+  with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
     cur.execute("SELECT * FROM question ORDER BY RANDOM();")
     data = cur.fetchall()
     return data
