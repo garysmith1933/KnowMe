@@ -1,6 +1,7 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, render_template
 from flask_cors import CORS, cross_origin
 import db
+import os
 
 app = Flask(__name__, static_url_path='', static_folder='client/build')
 cors = CORS(app)
@@ -11,7 +12,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def serve():
     print('running')
-    return send_from_directory('client/build','index.html')
+    return render_template(os.path.join(app.static_folder, 'index.html'))
 
 @app.route("/data")
 @cross_origin()
