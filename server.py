@@ -2,13 +2,14 @@ from flask import Flask, send_from_directory
 from flask_cors import CORS, cross_origin
 import db
 
-app = Flask(__name__, static_folder='./client/build')
+app = Flask(__name__, static_url_path='', static_folder='client/build')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/")
-@cross_origin()
-def serve():
+
+@app.route("/", defaults={'path':''})
+@cross_origin
+def serve(path):
     return send_from_directory(app.static_folder,'index.html')
 
 @app.route("/data")
