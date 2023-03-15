@@ -25,6 +25,7 @@ def get_questions():
   with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
     cur.execute("SELECT * FROM question ORDER BY RANDOM();")
     data = cur.fetchall()
+    print(data)
     return data
     
 seed()
