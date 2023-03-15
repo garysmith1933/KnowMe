@@ -54,7 +54,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8000")
+    fetch("https://knowme.onrender.com/data")
     .then(res => res.json())
     .then(
       data => {

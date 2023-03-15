@@ -13,7 +13,7 @@ def serve():
     print('running')
     return send_from_directory(app.static_folder,'index.html')
 
-@app.route("/")
+@app.route("/data")
 @cross_origin()
 def get_data():
   return db.get_questions()
