@@ -1,0 +1,21 @@
+{
+  "name": "knowme",
+  "version": "1.0.0",
+  "description": "work in progress",
+  "main": "index.js",
+  "scripts": {
+    "pre-build":"cd client && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garysmith1933/KnowMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garysmith1933/KnowMe/issues"
+  },
+  "homepage": "https://github.com/garysmith1933/KnowMe#readme"
+}
