@@ -4,7 +4,7 @@
   "description": "work in progress",
   "main": "index.js",
   "scripts": {
-    "pre-build":"cd client && npm run build",
+    "pre-build":"cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
