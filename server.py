@@ -9,7 +9,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/", defaults={'path':''})
 @cross_origin
-def serve(path):
+def serve():
     return send_from_directory(app.static_folder,'index.html')
 
 @app.route("/data")
