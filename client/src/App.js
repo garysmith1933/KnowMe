@@ -54,7 +54,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8080/data")
+    fetch("http://localhost:8000/data")
     .then(res => res.json())
     .then(
       data => {

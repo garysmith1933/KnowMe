@@ -10,7 +10,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/", defaults={'path':''})
 @cross_origin()
 def serve(path):
-    print('running')
+    print('running', app.static_folder)
     return send_from_directory(app.static_folder,'index.html')
 
 @app.route("/data")
@@ -20,4 +20,4 @@ def get_data():
 
 
 if __name__ == "__main__":
-  app.run(debug=True, port=8080)
+  app.run(debug=True, port=8000)
