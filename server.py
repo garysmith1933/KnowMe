@@ -7,11 +7,11 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route("/", defaults={'path':''})
+@app.route("/")
 @cross_origin()
-def serve(path):
-    print('running', app.static_folder)
-    return send_from_directory(app.static_folder,'index.html')
+def serve():
+    print('running')
+    return send_from_directory('client/build','index.html')
 
 @app.route("/data")
 @cross_origin()
