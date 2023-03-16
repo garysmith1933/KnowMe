@@ -13,7 +13,12 @@ def seed():
           {"title":'How old am I?', "option1": '27', "option2": '24', "option3": '26', "answer": '25'}, 
           {"title":'What year did I get married?', "option1": '2019', "option2": '2022', "option3": '2017', "answer": '2020'}, 
           {"title":'What is my favorite food?', "option1": 'French Fries', "option2": 'Ribs', "option3": 'Sushi', "answer": 'Chinese Food'}, 
-          {"title":'What is my favorite anime?', "option1": 'Steins Gate', "option2": 'My Hero Academia', "option3": 'Demon Slayer', "answer": 'Attack On Titan'}
+          {"title":'What is my favorite anime?', "option1": 'Steins Gate', "option2": 'My Hero Academia', "option3": 'Demon Slayer', "answer": 'Attack On Titan'},
+          {"title":'What is my favorite color?', "option1": 'Red', "option2": 'Purple', "option3": 'Blue', "answer": 'Green'},
+          {"title":'What are my 2 cats names?', "option1": 'Nikko & Roman', "option2": 'Mittens && Missy', "option3": 'You dont have cats!', "answer": 'Bojji & Luma'},
+          {"title":'What is my favorite movie?', "option1": 'Ready Player 1', "option2": 'Sonic the Hedgehog 2', "option3": 'Jumanji', "answer": 'You dont have a favorite!'},
+          {"title":'Which Pokemon Gen do I like most?', "option1": 'Kanto', "option2": 'Sinnoh', "option3": 'Unova', "answer": 'Johto'},
+          {"title":'Which shoe brand do I like most?', "option1": 'Nike', "option2": 'Addias', "option3": 'Puma', "answer": 'Which ever one is most comfy'},
         ]
 
       for question in questions:
@@ -22,7 +27,7 @@ def seed():
 
 def get_questions():
   with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
-    cur.execute("SELECT * FROM question ORDER BY RANDOM();")
+    cur.execute("SELECT * FROM question ORDER BY RANDOM() LIMIT 5;")
     data = cur.fetchall()
     print(data)
     return data
