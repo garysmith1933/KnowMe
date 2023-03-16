@@ -1,4 +1,3 @@
-import psycopg2
 from bitdotio import bitdotio
 import os
 

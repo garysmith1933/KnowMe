@@ -10,7 +10,6 @@ const assignNumber = (set) => {
   return res
 }
 
-
 const judgeScore = (score) => {
   const scores = {
     0: '0/5...uhhh how did you get 0, there is literally 5 questions with 4 options each and somehow you guessed wrong EVERY SINGLE TIME!? HOWWWWW!?!?',
@@ -31,9 +30,7 @@ function App() {
   const [answered, setAnswered] = useState(false)
   const [questionDetails, setQuestionDetails] = useState([])
 
-
   const shuffleOptions = (currentQuestion) => {
-    console.log(currentQuestion)
     const title = currentQuestion[1]
     const answer = currentQuestion[currentQuestion.length-1]
     const positons = new Set([2,3,4,5])
@@ -52,13 +49,11 @@ function App() {
     }
   },[current])
 
-
   useEffect(() => {
     fetch("https://knowme.onrender.com/data")
     .then(res => res.json())
     .then(
       data => {
-        console.log(data)
         shuffleOptions(data[0])
         setQuestions(data)
       }
@@ -120,12 +115,13 @@ function App() {
           
           <button id='next' onClick={() => nextQuestion()}>Next</button>
         </div>
-  : <div id='question-container'>
+  : 
+  
+    <div id='question-container'>
       <p>{judgeScore(score)}</p>
       <p>Thanks for playing!</p>
     </div>
     
-  
   return (
     <div className="App">
         {data}
