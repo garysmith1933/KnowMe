@@ -2,7 +2,8 @@ import './css/App.css';
 import './css/Questions.css'
 import './css/Mobile.css'
 import { useState, useEffect } from 'react';
-import { assignNumber, judgeScore } from './utils';
+import { shuffleOptions, judgeScore } from './utils';
+
 
 function App() {
   const [questions, setQuestions] = useState([])
@@ -11,22 +12,10 @@ function App() {
   const [answered, setAnswered] = useState(false)
   const [questionDetails, setQuestionDetails] = useState([])
 
-  const shuffleOptions = (currentQuestion) => {
-    const title = currentQuestion[1]
-    const answer = currentQuestion[currentQuestion.length-1]
-    const positons = new Set([2,3,4,5])
-  
-    const option1 = currentQuestion[assignNumber(positons)]
-    const option2 = currentQuestion[assignNumber(positons)]
-    const option3 = currentQuestion[assignNumber(positons)]
-    const option4 = currentQuestion[assignNumber(positons)]
-
-    setQuestionDetails([title, answer, option1, option2, option3, option4])
-  }
-
   useEffect(() => {
     if (questions.length && current < 5) {
-      shuffleOptions(questions[current])
+      const details = shuffleOptions(questions[current])
+      setQuestionDetails(details)
     }
   },[current])
 
@@ -35,7 +24,8 @@ function App() {
     .then(res => res.json())
     .then(
       data => {
-        shuffleOptions(data[0])
+        const details = shuffleOptions(data[0])
+        setQuestionDetails(details)
         setQuestions(data)
       }
     )

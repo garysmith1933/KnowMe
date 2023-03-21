@@ -1,12 +1,3 @@
-import React from "react";
-
-export const assignNumber = (set) => {
-  const random = Math.floor(Math.random() * set.size)
-  const res = Array.from(set)[random]
-  set.delete(res)
-  return res
-}
-
 export const judgeScore = (score) => {
   const scores = {
     0: '0/5...uhhh how did you get 0, there is literally 5 questions with 4 options each and somehow you guessed wrong EVERY SINGLE TIME!? HOWWWWW!?!?',
@@ -18,4 +9,24 @@ export const judgeScore = (score) => {
   }
 
   return scores[score]
+}
+
+const assignNumber = (set) => {
+  const random = Math.floor(Math.random() * set.size)
+  const res = Array.from(set)[random]
+  set.delete(res)
+  return res
+}
+
+export const shuffleOptions = (currentQuestion) => {
+  const title = currentQuestion[1]
+  const answer = currentQuestion[currentQuestion.length-1]
+  const positons = new Set([2,3,4,5])
+
+  const option1 = currentQuestion[assignNumber(positons)]
+  const option2 = currentQuestion[assignNumber(positons)]
+  const option3 = currentQuestion[assignNumber(positons)]
+  const option4 = currentQuestion[assignNumber(positons)]
+
+  return [title, answer, option1, option2, option3, option4]
 }
