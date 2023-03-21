@@ -6,7 +6,6 @@ import { shuffleOptions, judgeScore } from './utils';
 import { Options } from './components/Options';
 import { Score } from './components/Score';
 
-
 function App() {
   const [questions, setQuestions] = useState([])
   const [current, setCurrent] = useState(null)
@@ -79,7 +78,6 @@ function App() {
     return <Score score={score} judgeScore={judgeScore}/>
   }
   
-    
   return (
     <div className="App">
         {display()}

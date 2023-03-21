@@ -2,7 +2,7 @@ from bitdotio import bitdotio
 import os
 
 b = bitdotio(os.environ.get("API_KEY"))
-print(os.environ.get("API_KEY"))
+
 def seed():
     with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
       cur.execute("DROP TABLE IF EXISTS question")
