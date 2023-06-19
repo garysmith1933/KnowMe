@@ -17,7 +17,7 @@ def seed():
 
       questions = [
           {"title":'What is my middle name?', "option1": 'Kenneth', "option2": 'No middle name', "option3": 'Kyle', "answer": 'Lee'}, 
-          {"title":'How old am I?', "option1": '27', "option2": '24', "option3": '26', "answer": '25'}, 
+          {"title":'How old am I?', "option1": '27', "option2": '24', "option3": '25', "answer": '26'}, 
           {"title":'What year did I get married?', "option1": '2019', "option2": '2022', "option3": '2017', "answer": '2020'}, 
           {"title":'What is my favorite food?', "option1": 'French Fries', "option2": 'Ribs', "option3": 'Sushi', "answer": 'Chinese Food'}, 
           {"title":'What is my favorite anime?', "option1": 'Steins Gate', "option2": 'My Hero Academia', "option3": 'Demon Slayer', "answer": 'Attack On Titan'},
