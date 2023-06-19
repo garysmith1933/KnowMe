@@ -2,6 +2,7 @@ import psycopg2
 import os
 
 db_url = os.environ.get("DATABASE_URL")
+db_conn = None
 
 try:
   db_conn = psycopg2.connect(db_url)
