@@ -21,7 +21,7 @@ function App() {
   },[current])
 
   useEffect(() => {
-    fetch("https://knowme.onrender.com/data")
+    fetch("https://knowme.onrender.com/questions")
     .then(res => res.json())
     .then(
       data => {

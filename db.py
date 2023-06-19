@@ -2,15 +2,8 @@ import psycopg2
 import os
 
 db_url = os.environ.get("DATABASE_URL")
-db_conn = None
+db_conn = psycopg2.connect(db_url)
 
-try:
-  db_conn = psycopg2.connect(db_url)
-  print('Successfully connected to database')
-
-except psycopg2.Error as e:
-  print('An error occured', e)
-    
 def seed():
     with db_conn.cursor() as cur:
       cur.execute("DROP TABLE IF EXISTS question")
@@ -33,7 +26,10 @@ def seed():
         values = (question['title'], question['option1'], question['option2'], question['option3'], question['answer'])
         cur.execute("INSERT INTO question (title, option1, option2, option3, answer) VALUES(%s,%s,%s,%s,%s)", values)
 
+    db_conn.commit()
+
 def get_questions():
+  db_conn = psycopg2.connect(db_url)
   with db_conn.cursor() as cur:
     cur.execute("SELECT * FROM question ORDER BY RANDOM() LIMIT 5;")
     data = cur.fetchall()
