@@ -1,10 +1,17 @@
-from bitdotio import bitdotio
+import psycopg2
 import os
 
-b = bitdotio(os.environ.get("API_KEY"))
+db_url = os.environ.get("DATABASE_URL")
 
+try:
+  db_conn = psycopg2.connect(db_url)
+  print('Successfully connected to database')
+
+except psycopg2.Error as e:
+  print('An error occured', e)
+    
 def seed():
-    with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
+    with db_conn.cursor() as cur:
       cur.execute("DROP TABLE IF EXISTS question")
       cur.execute("CREATE TABLE question (id SERIAL PRIMARY KEY, title VARCHAR, option1 VARCHAR, option2 VARCHAR, option3 VARCHAR, answer VARCHAR);")
 
@@ -26,9 +33,12 @@ def seed():
         cur.execute("INSERT INTO question (title, option1, option2, option3, answer) VALUES(%s,%s,%s,%s,%s)", values)
 
 def get_questions():
-  with b.pooled_cursor("garysmith1933/KnowMe") as cur: # closes cursor when completed
+  with db_conn.cursor() as cur:
     cur.execute("SELECT * FROM question ORDER BY RANDOM() LIMIT 5;")
     data = cur.fetchall()
     return data
-    
+  
 seed()
+
+if db_conn:
+   db_conn.close()
