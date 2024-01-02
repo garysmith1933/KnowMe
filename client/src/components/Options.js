@@ -4,7 +4,7 @@ export const Options = ({questionDetails, nextQuestion, isCorrect}) => {
   return (
     <div id='question-container'>
       <div className='header'>
-        <h1>Think you know <span>Me</span>?</h1>
+        <h1>Think you <span>Know Me</span>?</h1>
         <p>Try out this quiz and see how you do!</p>
       </div>
 
